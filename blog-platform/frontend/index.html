@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Blog Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>📝 Blog</h1>
+            <div class="nav-links">
+                <a href="#" onclick="showPosts()">Home</a>
+                <div id="auth-buttons">
+                    <button onclick="showLogin()">Login</button>
+                    <button onclick="showRegister()">Register</button>
+                </div>
+                <div id="user-info" style="display:none;">
+                    <span id="username-display"></span>
+                    <button onclick="showCreatePost()">+ New Post</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Auth Forms -->
+        <div id="login-form" class="form-container">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+        </div>
+
+        <div id="register-form" class="form-container" style="display:none;">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username">
+            <input type="email" id="register-email" placeholder="Email">
+            <input type="password" id="register-password" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+
+        <!-- Create Post -->
+        <div id="create-post" style="display:none;">
+            <h2>Create New Post</h2>
+            <input type="text" id="post-title" placeholder="Post Title">
+            <textarea id="post-content" placeholder="Write your content here..."></textarea>
+            <button onclick="createPost()">Publish</button>
+            <button onclick="cancelCreatePost()">Cancel</button>
+        </div>
+
+        <!-- Edit Post -->
+        <div id="edit-post" style="display:none;">
+            <h2>Edit Post</h2>
+            <input type="text" id="edit-post-title" placeholder="Post Title">
+            <textarea id="edit-post-content" placeholder="Write your content here..."></textarea>
+            <button onclick="updatePost()">Update</button>
+            <button onclick="cancelEditPost()">Cancel</button>
+        </div>
+
+        <!-- Posts List -->
+        <div id="posts-list">
+            <h2>All Posts</h2>
+            <div id="posts"></div>
+        </div>
+
+        <!-- Single Post View -->
+        <div id="post-view" style="display:none;">
+            <div id="single-post"></div>
+            <div id="comments-section">
+                <h3>Comments</h3>
+                <div id="comments"></div>
+                <div id="comment-form">
+                    <textarea id="comment-content" placeholder="Write a comment..."></textarea>
+                    <button onclick="addComment()">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/posts.js"></script>
+    <script src="js/comments.js"></script>
+</body>
+</html>
